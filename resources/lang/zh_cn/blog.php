@@ -99,4 +99,8 @@ return [
     'Be Banned Comment'    => '评论已被禁止!',
     'Likes'                => '...',
     'Dislikes'             => '...',
+    'Read More'=>'查看更多',
+    'Year'=>'年',
+    'Month'=>'月',
+    'Time Meta'=>'发布的所有文章和讨论'
 ];

@@ -16,7 +16,7 @@ export default{
   },
   computed: {
     color() {
-      return this.rowData.status ? '#8eb4cb' : '#bf5329'
+      return this.rowData.status ? '#2ecc71' : '#e74c3c'
     }
   },
   methods: {
@@ -28,7 +28,9 @@ export default{
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, changed it!",
+        // confirmButtonText: "Yes, changed it!",
+        confirmButtonText: index.$t('user.confirmButton'),
+          cancelButtonText:index.$t('user.cancelButton'),
       }).then(function (result) {
         result.value && index.postData(rowData)
       })

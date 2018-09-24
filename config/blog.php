@@ -37,10 +37,14 @@ return [
     // Article Page
     'article' => [
         'title'       => 'Nothing is impossible.',
-        'description' => 'https://pigjian.com',
-        'number'      => 15,
+        'description' => 'https://www.gegaofeng.com',
+        'number'      => 10,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
+    ],
+    //Article List
+    'article_list'=>[
+        'most_visit'=>5
     ],
 
     // Discussion Page
@@ -54,15 +58,15 @@ return [
     'footer' => [
         'github' => [
             'open' => true,
-            'url'  => 'https://github.com/jcc',
+            'url'  => 'https://github.com/gegaofeng',
         ],
         'twitter' => [
-            'open' => true,
-            'url'  => 'https://twitter.com/pigjian'
+            'open' => false,
+            'url'  => 'https://twitter.com/'
         ],
-        'meta' => '© PJ Blog 2016. Powered By Jiajian Chan',
+        'meta' => '© Xiaocainiao 2018.Powered By gegaofeng.com',
     ],
 
-    'license' => 'Powered By Jiajian Chan.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',
+    'license' => 'Powered By gegaofeng.com.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',
 
 ];

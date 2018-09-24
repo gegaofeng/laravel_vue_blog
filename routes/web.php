@@ -1,5 +1,8 @@
 <?php
 
+//Test
+Route::get('test','ArticleController@test');
+
 // User Auth
 Auth::routes();
 Route::post('password/change', 'UserController@changePassword')->middleware('auth');
@@ -69,4 +72,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 
 // Article
 Route::get('/', 'ArticleController@index');
+Route::get('month/{month}','ArticleController@articleGroupByTime')->where('month','[\d]{6}');
 Route::get('{slug}', 'ArticleController@show');

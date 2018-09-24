@@ -42,9 +42,10 @@ Vue.use(VueRouter);
 Vue.config.lang = window.Language;
 
 const i18n = new VueI18n({
-    locale: Vue.config.lang,
+    // locale: Vue.config.lang,
+    locale: localStorage.getItem('language')|| Vue.config.lang,
     messages: locales
-})
+});
 
 Vue.component(
     'vue-table-pagination',
@@ -62,8 +63,8 @@ Vue.component(
 );
 
 new Vue({
+    i18n,
     router,
     store,
-    i18n,
     render: (h) => h(App)
 }).$mount('#app');

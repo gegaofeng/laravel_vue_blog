@@ -46,4 +46,14 @@ class TagRepository
     {
         return $this->model->where('tag', $name)->first();
     }
+
+    public function articleGroupBytag()
+    {
+        $article_group_by_tag=array();
+        $tags = $this->model->all();
+        foreach ($tags as $tag) {
+            $article_group_by_tag[$tag->tag]=$tag->articles()->count();
+        }
+        return $article_group_by_tag;
+    }
 }

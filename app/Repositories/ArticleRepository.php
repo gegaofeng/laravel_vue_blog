@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Article;
 use App\Scopes\DraftScope;
+use Illuminate\Support\Facades\DB;
 
 class ArticleRepository
 {
@@ -156,4 +157,32 @@ class ArticleRepository
         return $this->getById($id)->delete();
     }
 
+    /**
+     * Notes:获取文章归档数据
+     * User:
+     * Date:2018/9/24
+     * @return array
+     */
+    public function articleGroupByTime(){
+        $article_group_by_time=DB::select('select DATE_FORMAT(published_at,\'%Y%m\') as time,COUNT(DATE_FORMAT(published_at,\'%Y%m\')) as counts from articles GROUP BY DATE_FORMAT(published_at,\'%Y%m\')');
+        return array_reverse($article_group_by_time);
+    }
+
+    /**
+     * Notes:获取排行榜文章
+     * User:
+     * Date:2018/9/24
+     * @param int $number
+     * @param string $sort
+     * @param string $sortColumn
+     * @return mixed
+     */
+    public function articleGetByViewCount($number = 5, $sort = 'desc', $sortColumn = 'view_count'){
+        $article_get_by_view_count=$this->model->select('title','slug','view_count')->orderby($sortColumn,$sort)->limit($number)->get();
+        return $article_get_by_view_count;
+    }
+    public function articleGetByPublishedTime($time){
+        $articles=$this->model->select('title','slug','view_count')->whereYear('published_at',$time['year'])->whereMonth('published_at',$time['month'])->get();
+        return $articles;
+    }
 }

@@ -1,6 +1,10 @@
 <div class="container list">
     <div class="row">
-        <ul class="list-unstyled col-md-10 offset-md-1">
+        <div class="col-md-3">
+        @include('widgets.article_list')
+        </div>
+        <div class="col-md-9">
+        <ul class="list-unstyled">
             @forelse($articles as $article)
             <li class="media">
                 @if($article->page_image)
@@ -29,10 +33,10 @@
 
                         <div class="info">
                             <i class="fas fa-user"></i>{{ $article->user->name or 'null' }}&nbsp;,&nbsp;
-                            <i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
+                            <i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans()}}&nbsp;,&nbsp;
                             <i class="fas fa-eye"></i>{{ $article->view_count }}
                             <a href="{{ url($article->slug) }}" class="float-right">
-                                Read More <i class="fas fa-chevron-right"></i>
+                                {{lang('Read More')}} <i class="fas fa-chevron-right"></i>
                             </a>
                         </div>
                     </div>
@@ -42,5 +46,6 @@
                 <h3 class="text-center">{{ lang('Nothing') }}</h3>
             @endforelse
         </ul>
+        </div>
     </div>
 </div>

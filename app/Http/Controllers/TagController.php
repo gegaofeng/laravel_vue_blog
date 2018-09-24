@@ -44,4 +44,9 @@ class TagController extends Controller
 
         return view('tag.show', compact('tag', 'articles', 'discussions'));
     }
+
+    public function articleGroupBytag()
+    {
+        return $this->tag->articleGroupBytag();
+    }
 }
