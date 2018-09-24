@@ -4,6 +4,7 @@ namespace App;
 
 use App\Scopes\DraftScope;
 use App\Tools\Markdowner;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -112,7 +113,7 @@ class Article extends Model
      */
     public function getCreatedAtAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->diffForHumans();
+        return Carbon::createFromFormat('Y-m-d H:i:s', $value)->diffForHumans();
     }
 
     /**

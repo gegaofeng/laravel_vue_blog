@@ -5,6 +5,9 @@
         <i class="fas fa-bars text-secondary"></i>
       </a>
     </div>
+    <div>
+      <button @click="changeLanguage">{{language}}</button>
+    </div>
   </nav>
 </template>
 
@@ -12,8 +15,24 @@
     import { mapActions } from 'vuex';
 
     export default {
-        methods: mapActions([
-            'toggle'
-        ])
+        data(){
+            return{
+                language:''
+            }
+        },
+        methods: {
+            ...mapActions([
+                           'toggle'
+                       ]),
+            changeLanguage:function () {
+                let locale = this.$i18n.locale;
+                locale === 'zh_cn' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'zh_cn';
+                this.language=this.$i18n.locale
+                localStorage.setItem('language',this.language)
+            }
+        },
+        mounted(){
+            this.language=this.$i18n.locale;
+        }
     }
 </script>

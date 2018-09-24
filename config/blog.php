@@ -38,9 +38,13 @@ return [
     'article' => [
         'title'       => 'Nothing is impossible.',
         'description' => 'https://pigjian.com',
-        'number'      => 15,
+        'number'      => 10,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
+    ],
+    //Article List
+    'article_list'=>[
+        'most_visit'=>5
     ],
 
     // Discussion Page

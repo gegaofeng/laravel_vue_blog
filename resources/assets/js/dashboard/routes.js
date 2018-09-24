@@ -28,7 +28,7 @@ export default [{
     ...system,
   ],
 }]
-
+console.log('123');
 function requireAuth(to, from, next) {
   if (window.User) {
     return next()

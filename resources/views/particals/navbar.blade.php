@@ -65,6 +65,9 @@
                         </ul>
                     </li>
                 @endif
+                <li class="nav-item">
+                    {{--<a href="javascript:void(0)" class="nav-link" onclick="window.language==='zh_cn'?'en':'zh_cn'">中</a>--}}
+                </li>
             </ul>
         </div>
     </div>

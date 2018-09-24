@@ -23,6 +23,7 @@ const beforeEach = (to, from, next) => {
   //     }
   //     next()
   //   });
+    window.document.title=to.meta.title;
   next();
 };
 

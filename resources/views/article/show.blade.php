@@ -16,7 +16,7 @@
                     <a href="{{ url('tag', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>，
                 @endforeach
             @endif
-            <i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans() }}
+            <i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans()}}
         </div>
     @endcomponent
 

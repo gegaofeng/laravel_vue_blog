@@ -18,7 +18,8 @@ Vue.use(httpPlugin);
 Vue.config.lang = window.Language;
 
 const i18n = new VueI18n({
-  locale: Vue.config.lang,
+  // locale: Vue.config.lang,
+    locale: localStorage.getItem('language')|| Vue.config.lang,
   messages: locales
 })
 
