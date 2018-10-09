@@ -57,7 +57,8 @@ class ArticleController extends Controller
 
     public function test()
     {
-        return $this->readEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
+//        return $this->readEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
+        return $this->modifyEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
     }
 
     function readEnv(array $data)

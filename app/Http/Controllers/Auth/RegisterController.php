@@ -42,6 +42,21 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        if (config('blog.user_register')=='on'){
+            return view('auth.register');
+        }else{
+            return view('auth.register_off');
+        }
+
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data

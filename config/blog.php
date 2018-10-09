@@ -36,7 +36,7 @@ return [
 
     // Article Page
     'article' => [
-        'title'       => 'Nothing is impossible.',
+        'title'       => '简单不先于复杂，而是在复杂之后',
         'description' => 'https://www.gegaofeng.com',
         'number'      => 10,
         'sort'        => 'desc',
@@ -57,7 +57,7 @@ return [
     // Footer
     'footer' => [
         'github' => [
-            'open' => true,
+            'open' => false,
             'url'  => 'https://github.com/gegaofeng',
         ],
         'twitter' => [
@@ -68,5 +68,6 @@ return [
     ],
 
     'license' => 'Powered By gegaofeng.com.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',
-
+    //注册功能开放
+    'user_register' => env('USER_REGISTER') ? : 'on',
 ];
