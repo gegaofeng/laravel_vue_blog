@@ -16,13 +16,13 @@ return [
 
     // Meta
     'meta' => [
-        'keywords' => 'PJ Blog,blog,pigjian,laravel,vuejs',
-        'description' => 'Nothing is impossible in PJ Blog'
+        'keywords' => '',
+        'description' => ''
     ],
 
     // Social Share
     'social_share' => [
-        'article_share'    => env('ARTICLE_SHARE') ?: true,
+        'article_share'    => env('ARTICLE_SHARE') ?: false,
         'discussion_share' => env('DISCUSSION_SHARE') ?: true,
         'sites'            => env('SOCIAL_SHARE_SITES') ?: 'google,twitter,weibo',
         'mobile_sites'     => env('SOCIAL_SHARE_MOBILE_SITES') ?: 'google,twitter,weibo,qq,wechat',

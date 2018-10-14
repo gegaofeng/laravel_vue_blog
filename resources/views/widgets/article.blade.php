@@ -19,7 +19,7 @@
                         </a>
                     </h6>
                     <div class="meta">
-                        <span class="cinema">{{ $article->subtitle }}</span>
+                        {{--<span class="cinema">{{ $article->subtitle }}</span>--}}
                     </div>
                     <div class="description">
                         {{ $article->meta_description }}

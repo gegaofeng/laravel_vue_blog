@@ -50,7 +50,7 @@ class ArticleController extends Controller
     public function articleGroupByTime($month)
     {
         $time['year'] = substr($month, 0, 4);
-        $time['month'] = substr($month, 5);
+        $time['month'] = substr($month, 4);
         $articles = $this->article->articleGetByPublishedTime($time);
         //        var_dump($articles);
         return view('article.month', compact('articles', 'time'));
