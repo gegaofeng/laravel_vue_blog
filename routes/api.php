@@ -57,4 +57,5 @@ Route::group([
     Route::delete('comments/{id}', 'CommentController@destroy')->middleware('auth:api');
     Route::post('comments/vote/{type}', 'MeController@postVoteComment')->middleware('auth:api');
     Route::get('tags', 'TagController@getList');
+    Route::get('getenv','SystemController@getEnv');
 });

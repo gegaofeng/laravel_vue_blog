@@ -56,13 +56,18 @@ class ArticleController extends Controller
         return view('article.month', compact('articles', 'time'));
     }
 
+    /**
+     * Notes:测试路由
+     * User:
+     * Date:2018/10/16
+     * @return mixed
+     */
     public function test()
     {
 //        return $this->readEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
-        return $this->modifyEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
+        return $this->getEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
     }
-
-    function readEnv(array $data)
+    function getEnv(array $data=['APP_ENV'=>'','LOCALE'=>'','ARTICLE_SHARE'=>''])
     {
         $envPath = base_path() . DIRECTORY_SEPARATOR . '.env';
         $contentArray = collect(file($envPath, FILE_IGNORE_NEW_LINES));
@@ -82,23 +87,4 @@ class ArticleController extends Controller
         }
         var_dump($systemSetting);
     }
-
-    function modifyEnv(array $data)
-    {
-        $envPath = base_path() . DIRECTORY_SEPARATOR . '.env';
-        $contentArray = collect(file($envPath, FILE_IGNORE_NEW_LINES));
-        $contentArray->transform(function ($item) use ($data)
-        {
-            foreach ($data as $key => $value) {
-                if (str_contains($item, $key)) {
-                    return $key . '=' . $value;
-                }
-            }
-            return $item;
-        }
-        );
-        $content = implode($contentArray->toArray(), "\n");
-        \File::put($envPath, $content);
-    }
-
 }
