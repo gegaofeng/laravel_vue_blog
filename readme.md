@@ -1,6 +1,5 @@
 #  Blog
 
-基于[PJ Blog](https://pigjian.com/)二次开发
 
 `Laravel 5.*` and `Vuejs 2.*` combined with the establishment of a good response and quickly dashboard, the dashboard made through the `Vuejs` component development.
 
