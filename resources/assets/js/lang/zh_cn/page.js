@@ -25,5 +25,6 @@ export default {
   version: '版本',
   extension: '扩展',
   driver: '驱动',
-  nothing: 'No Content'
+  nothing: 'No Content',
+    personal:'个性化'
 }

@@ -18,6 +18,9 @@
                 <li aria-expanded="false" :class="[type == 'database' ? 'active' : '']" @click="type = 'database'">
                   <a><i class="fas fa-database"></i> {{ $t('page.database') }}</a>
                 </li>
+                <li aria-expanded="false" :class="[type == 'personal' ? 'active' : '']" @click="type = 'personal'">
+                  <a><i class="fas fa-info"></i> {{ $t('page.personal') }}</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -98,6 +101,35 @@
                     <td>{{ $t('page.version') }}</td>
                     <td>{{ system.db_version }}</td>
                   </tr>
+                </tbody>
+              </table>
+            </li>
+            <li aria-hidden="true" v-if="type == 'personal'">
+              <h2>{{ $t('page.personal') }}</h2>
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th width="150">{{ $t('page.key') }}</th>
+                  <th>{{ $t('page.value') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>{{ $t('page.server') }}</td>
+                  <td>{{ system.server }}</td>
+                </tr>
+                <tr>
+                  <td>{{ $t('page.domain') }}</td>
+                  <td>{{ system.http_host }}</td>
+                </tr>
+                <tr>
+                  <td>IP</td>
+                  <td>{{ system.remote_host }}</td>
+                </tr>
+                <tr>
+                  <td>User Agent</td>
+                  <td>{{ system.user_agent }}</td>
+                </tr>
                 </tbody>
               </table>
             </li>
