@@ -1,7 +1,7 @@
 <?php
 
 //Test
-Route::get('test','ArticleController@test');
+Route::get('test','Systemcontroller@getEnv');
 
 // User Auth
 Auth::routes();

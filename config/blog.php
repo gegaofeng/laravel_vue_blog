@@ -23,7 +23,7 @@ return [
     // Social Share
     'social_share' => [
         'article_share'    => env('ARTICLE_SHARE') ?: false,
-        'discussion_share' => env('DISCUSSION_SHARE') ?: true,
+        'discussion_share' => env('DISCUSSION_SHARE') ?: false,
         'sites'            => env('SOCIAL_SHARE_SITES') ?: 'google,twitter,weibo',
         'mobile_sites'     => env('SOCIAL_SHARE_MOBILE_SITES') ?: 'google,twitter,weibo,qq,wechat',
     ],
@@ -69,5 +69,5 @@ return [
 
     'license' => 'Powered By gegaofeng.com.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',
     //注册功能开放
-    'user_register' => env('USER_REGISTER') ? : 'on',
+    'user_register' => env('USER_REGISTER') ? : false,
 ];

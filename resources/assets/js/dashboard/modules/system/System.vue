@@ -110,26 +110,18 @@
                 <thead>
                 <tr>
                   <th width="150">{{ $t('page.key') }}</th>
-                  <th>{{ $t('page.value') }}</th>
+                  <th>{{ $t('page.switch') }}</th>
                 </tr>
                 </thead>
                 <tbody>
+                <template v-for="personalsetting in system.personalsettings">
                 <tr>
-                  <td>{{ $t('page.server') }}</td>
-                  <td>{{ system.server }}</td>
+                  <td>{{ $t('page.'+personalsetting.id) }}</td>
+                  <td>
+                    <custom-action :api-url="apiUrl" :row-data="personalsetting"></custom-action>
+                  </td>
                 </tr>
-                <tr>
-                  <td>{{ $t('page.domain') }}</td>
-                  <td>{{ system.http_host }}</td>
-                </tr>
-                <tr>
-                  <td>IP</td>
-                  <td>{{ system.remote_host }}</td>
-                </tr>
-                <tr>
-                  <td>User Agent</td>
-                  <td>{{ system.user_agent }}</td>
-                </tr>
+                </template>
                 </tbody>
               </table>
             </li>
@@ -145,7 +137,8 @@ export default {
   data() {
     return {
       system: {},
-      type: 'system'
+      type: 'system',
+        apiUrl:'system'
     }
   },
   created() {

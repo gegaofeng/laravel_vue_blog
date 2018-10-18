@@ -41,6 +41,7 @@ Route::group([
     Route::post('file/delete', 'UploadController@deleteFile');
 
     Route::get('system', 'SystemController@getSystemInfo');
+    Route::post('system/{setting}/status','SystemController@status');
 });
 
 Route::group([

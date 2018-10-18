@@ -61,6 +61,10 @@ Vue.component(
     'vue-form',
     require('dashboard/components/Form.vue')
 );
+Vue.component(
+    'custom-action',
+    require('dashboard/components/CustomAction')
+);
 
 new Vue({
     i18n,

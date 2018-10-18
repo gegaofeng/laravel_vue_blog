@@ -48,7 +48,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        if (config('blog.user_register')=='on'){
+        if (config('blog.user_register')){
             return view('auth.register');
         }else{
             return view('auth.register_off');

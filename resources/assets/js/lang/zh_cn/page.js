@@ -26,5 +26,9 @@ export default {
   extension: '扩展',
   driver: '驱动',
   nothing: 'No Content',
-    personal:'个性化'
+    personal:'个性化',
+    switch:'是否启用',
+    ARTICLE_SHARE:'文章分享',
+    USER_REGISTER:'新用户注册',
+    DISCUSSION_SHARE:'讨论分享'
 }

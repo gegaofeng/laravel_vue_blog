@@ -5,6 +5,11 @@ use Illuminate\Http\Request;
 
 class SystemController extends ApiController
 {
+     protected $personalsetting=array(
+         'USER_REGISTER'=>'',
+         'DISCUSSION_SHARE'=>'',
+         'ARTICLE_SHARE'=>''
+     );
     /**
      * SystemController constructor.
      */
@@ -36,38 +41,37 @@ class SystemController extends ApiController
             'db_database'     => isset($_SERVER['DB_DATABASE']) ? $_SERVER['DB_DATABASE'] : 'Secret',
             'db_version'      => $version,
         ];
-
+        $data=array_merge($data,$this->getEnv($this->personalsetting));
         return $this->response->json($data);
     }
-
-
-    /**
-     * Notes:
-     * User:
-     * Date:2018/10/16
-     * @param array $data
-     * @return \Illuminate\Http\JsonResponse
-     */
+    public function status($setting,Request $request){
+        $value=$request->post('status')?'true':'false';
+        $this->modifyEnv(array($setting=>$value));
+    }
     function getEnv(array $data=['APP_ENV'=>'','LOCALE'=>'','ARTICLE_SHARE'=>''])
     {
-        $envPath = base_path() . DIRECTORY_SEPARATOR . '.env';
-        $contentArray = collect(file($envPath, FILE_IGNORE_NEW_LINES));
-        $contentArray->transform(function ($item) use ($data)
-        {
-            foreach ($data as $key => $value) {
-                if (str_contains($item, $key)) {
-                    return $item;
-                }
-            }
-        }
-        );
-        $preg = "/(\w+)=(\S*)/i";
-        foreach (array_filter($contentArray->toArray()) as $key => $value) {
-            preg_match($preg, $value, $arr);
-            $systemSettings[$arr[1]] = $arr[2];
-        }
+//        $systemSettings=array();
+//        $envPath = base_path() . DIRECTORY_SEPARATOR . '.env';
+//        $contentArray = collect(file($envPath, FILE_IGNORE_NEW_LINES));
+//        $contentArray->transform(function ($item) use ($data)
+//        {
+//            foreach ($data as $key => $value) {
+//                if (str_contains($item, $key)) {
+//                    return $item;
+//                }
+//            }
+//        }
+//        );
+//        $preg = "/(\w+)=(\S*)/i";
+//        foreach (array_filter($contentArray->toArray()) as $key => $value) {
+//            preg_match($preg, $value, $arr);
+//            $systemSettings[]=array('id'=>$arr[1],'status'=> (bool)$arr[2]);
+//        }
 //        var_dump($systemSettings);
-        return $this->response->json($systemSettings);
+        foreach ($data as $key=>$value){
+            $systemSettings[]=array('id'=>$key,'status'=>env($key));
+        }
+        return array('personalsettings'=>$systemSettings);
     }
 
     /**
@@ -76,9 +80,8 @@ class SystemController extends ApiController
      * Date:2018/10/16
      * @param array $data
      */
-    function modifyEnv(Request $request)
+    function modifyEnv(array $data)
     {
-        $data=$request;
         $envPath = base_path() . DIRECTORY_SEPARATOR . '.env';
         $contentArray = collect(file($envPath, FILE_IGNORE_NEW_LINES));
         $contentArray->transform(function ($item) use ($data)
