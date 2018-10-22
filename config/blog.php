@@ -16,7 +16,7 @@ return [
 
     // Meta
     'meta' => [
-        'keywords' => '',
+        'keywords' => '小菜鸟进阶',
         'description' => ''
     ],
 
@@ -70,4 +70,5 @@ return [
     'license' => 'Powered By gegaofeng.com.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',
     //注册功能开放
     'user_register' => env('USER_REGISTER') ? : false,
+    'test'=>env('USER_REGISTER') ? : false,
 ];

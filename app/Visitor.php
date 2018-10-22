@@ -12,7 +12,7 @@ class Visitor extends Model
      * @var array
      */
     protected $fillable = [
-        'ip', 'article_id', 'clicks'
+        'ip', 'article_id', 'clicks','country'
     ];
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 //Test
-Route::get('test','Systemcontroller@getEnv');
+Route::get('test','Api\SystemController@test');
 
 // User Auth
 Auth::routes();

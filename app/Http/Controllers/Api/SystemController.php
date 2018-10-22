@@ -97,4 +97,10 @@ class SystemController extends ApiController
         $content = implode($contentArray->toArray(), "\n");
         \File::put($envPath, $content);
     }
+    function test(){
+        echo config('blog.test');
+        config('blog.test','tttt');
+        echo "<hr>";
+        echo config('blog.test');
+    }
 }

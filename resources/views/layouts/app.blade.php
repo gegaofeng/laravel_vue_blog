@@ -12,7 +12,7 @@
 
     <link rel="shortcut icon" href="{{ config('blog.default_icon') }}">
 
-    <title>@yield('title', config('app.name'))</title>
+    <title>@yield('title', config('app.name'))-{{config('blog.meta.keywords')}}</title>
 
     <link rel="stylesheet" href="{{ mix('css/home.css') }}">
     <link rel="stylesheet" href="{{ mix('css/themes/' . config('blog.color_theme') . '.css') }}">

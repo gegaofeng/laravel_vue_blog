@@ -62,6 +62,7 @@ class VisitorRepository
     public function log($article_id)
     {
         $ip = $this->ip->get();
+        $ip_info=$this->ip->getIpInfo();
 
         if ($this->hasArticleIp($article_id, $ip)) {
 
@@ -73,6 +74,7 @@ class VisitorRepository
             $data = [
                 'ip'		    => $ip,
                 'article_id'    => $article_id,
+                'country'       => $ip_info,
                 'clicks' 	    => 1
             ];
             $this->model->firstOrCreate( $data );
