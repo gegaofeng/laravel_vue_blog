@@ -64,10 +64,11 @@ class ArticleController extends Controller
      */
     public function test()
     {
-//        return $this->readEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
+        //        return $this->readEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
         return $this->getEnv(['TIMEZONE' => '', 'LOCALE' => '', 'APPLICATION_NAME' => '']);
     }
-    function getEnv(array $data=['APP_ENV'=>'','LOCALE'=>'','ARTICLE_SHARE'=>''])
+
+    function getEnv(array $data = ['APP_ENV' => '', 'LOCALE' => '', 'ARTICLE_SHARE' => ''])
     {
         $envPath = base_path() . DIRECTORY_SEPARATOR . '.env';
         $contentArray = collect(file($envPath, FILE_IGNORE_NEW_LINES));
